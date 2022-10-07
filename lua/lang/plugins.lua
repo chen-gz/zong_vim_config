@@ -38,6 +38,8 @@ require('lspconfig')['pylsp'].setup {
         return vim.loop.cwd()
     end
 }
+-- set lsp for c/cpp
+require('lspconfig')['clangd'].setup {}
 
 -- config for markdown language
 vim.cmd("autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc")

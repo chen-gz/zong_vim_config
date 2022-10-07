@@ -25,11 +25,8 @@ require("indent_blankline").setup {
 require('gitsigns').setup()
 require('fidget').setup()
 
---require('feline').setup()
---require('feline').winbar.setup()
 
--- setup for nvim tree
-require('nvim-tree').setup {}
+require('nvim-tree').setup { }
 require('ui/feline_one_monokai')
 
 vim.cmd("colorscheme gruvbox")

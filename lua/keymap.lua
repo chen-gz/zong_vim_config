@@ -20,3 +20,6 @@ vim.keymap.set('t', '<F5>', "<C-\\><C-n><Esc><Cmd>ToggleTerm direction=float<CR>
 vim.keymap.set('n', 'gd', ":Lspsaga peek_definition<CR>", {})
 vim.keymap.set('n', 'gD', ":lua vim.lsp.buf.definition()<CR>", {})
 vim.keymap.set('n', 'gh', ":Lspsaga lsp_finder<CR>", {})
+vim.keymap.set('n', '/', ":SearchBoxIncSearch<CR>", {})
+vim.keymap.set('n', ':', "<cmd>FineCmdline<CR>", {})
+
