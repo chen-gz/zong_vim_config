@@ -51,5 +51,7 @@ vim.o["autoread"]       = true -- automatically reload files when changed
 vim.o["autowrite"]      = true -- automatically save before commands like :next and :make
 vim.o["cmdheight"]      = 1 -- height of command bar
 vim.o["termguicolors"]  = true -- enable 24-bit RGB colors
+-- space as leader
+vim.g.mapleader = " "
 
 -- vim.o["colorscheme"] = "gruvbox"
