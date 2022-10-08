@@ -6,7 +6,7 @@ use { 'neovim/nvim-lspconfig', opt = false, event = "BufReadPre", config = confi
 use { 'glepnir/lspsaga.nvim', opt = false, after = "nvim-lspconfig", config = config.lspsaga, }
 use { 'ray-x/lsp_signature.nvim', opt = true, after = "nvim-lspconfig", }
 use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig', }
-use { 'nvim-treesitter/nvim-treesitter', config = config.nvim_treesitter() }
+use { 'nvim-treesitter/nvim-treesitter', config = config.nvim_treesitter }
 use { 'zbirenbaum/copilot.lua', config = config.copilot }
 use { 'zbirenbaum/copilot-cmp', config = config.copilot_cmp }
 

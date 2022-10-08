@@ -18,8 +18,8 @@ end
 
 function config.nvim_treesitter()
 
-    vim.api.nvim_set_option_value("foldmethod", "expr", {})
-    vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
+    -- vim.api.nvim_set_option_value("foldmethod", "expr", {})
+    -- vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
     require 'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all"
         ensure_installed      = { "c", "lua", "cpp", },
@@ -33,7 +33,7 @@ function config.nvim_treesitter()
             additional_vim_regex_highlighting = false,
         },
         context_commentstring = { enable = true, enable_autocmd = false, },
-        matchup               = { enable = true, },
+        --matchup              = { enable = true, },
     }
 end
 
