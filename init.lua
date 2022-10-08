@@ -11,5 +11,8 @@ require('lang/plugins')
 require('ui/plugins')
 require('keymap')
 
-
-
+--require('lang.conf')
+--require('lang.cmp_conf')
+--require('tools.conf')
+--require('ui.feline_one_monokai')
+--require('ui.conf')

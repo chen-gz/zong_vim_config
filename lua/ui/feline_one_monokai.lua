@@ -231,3 +231,8 @@ feline.setup({
 	theme = one_monokai,
 	vi_mode_colors = vi_mode_colors,
 })
+feline.winbar.setup({
+    -- components = components,
+    theme = one_monokai,
+    -- vi_mode_colors = vi_mode_colors,
+})
