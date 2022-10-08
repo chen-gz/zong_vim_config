@@ -40,9 +40,9 @@ vim.api.nvim_set_keymap('n', '<C-l>', "<C-w>l", { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-j>', "<C-w>j", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<C-k>', "<C-w>k", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', 'q', "<cmd>q<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('n', '<leader>s', "<Esc>:w<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('i', '<C-s>', "<Esc>:w<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('n', '<C-s>', "<Esc>:w<CR>", { noremap = true, silent = true });
+vim.api.nvim_set_keymap('n', '<leader>s', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
+vim.api.nvim_set_keymap('i', '<C-s>', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
+vim.api.nvim_set_keymap('n', '<C-s>', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<leader>f', "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<F5>', "<Esc><Cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('t', '<F5>', "<C-\\><C-n><Esc><Cmd>ToggleTerm direction=float<CR>",

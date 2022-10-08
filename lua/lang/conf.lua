@@ -1,5 +1,4 @@
 --lua-language-server
-
 local vim = vim
 
 local config = {}
@@ -44,9 +43,9 @@ function config.lspconfig()
     require 'lspconfig'.sumneko_lua.setup {}
     require('lspconfig')['pylsp'].setup {
         -- on_attach = on_attach,
-        root_dir = function(fname)
-            return vim.loop.cwd()
-        end
+        --root_dir = function(fname)
+        --    return vim.loop.cwd()
+        --end
     }
     -- set lsp for c/cpp
     require('lspconfig')['clangd'].setup {}
@@ -137,9 +136,15 @@ function config.cmp()
         return vim.api.nvim_replace_termcodes(str, true, true, true)
     end
 
+    -- local has_words_before = function()
+    --     -- local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    --     -- return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    --     return false;
+    -- end
     local has_words_before = function()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+        -- local cursor = vim.api.nvim_win_get_cursor(0)
+        -- return not vim.api.nvim_get_current_line():sub(1, cursor[2]):match('^%s$')
+        return false;
     end
 
     cmp.setup({
@@ -183,7 +188,7 @@ function config.cmp()
                 elseif require("luasnip").expand_or_jumpable() then
                     vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
                 elseif has_words_before() then
-                    cmp.complete()
+                    -- cmp.mapping.complete()
                 else
                     fallback()
                 end
