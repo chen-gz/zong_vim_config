@@ -32,3 +32,8 @@ use {
 
 use { 'VonHeikemen/searchbox.nvim', requires = { { 'MunifTanjim/nui.nvim' } } }
 use { 'VonHeikemen/fine-cmdline.nvim', requires = { { 'MunifTanjim/nui.nvim' } } }
+use {
+    'andymass/vim-matchup', -- for % and other matching
+    config = config.vim_matchup
+
+}

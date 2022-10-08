@@ -1,4 +1,3 @@
-
 local global = {}
 local vim = vim
 local os_name = vim.loop.os_uname().sysname
@@ -17,7 +16,7 @@ function global:load_variables()
 end
 
 global:load_variables()
-local vim = vim
+local vim               = vim
 -- options
 vim.o["number"]         = true -- show line numbers
 vim.o["relativenumber"] = true -- show relative line numbers
@@ -51,7 +50,22 @@ vim.o["autoread"]       = true -- automatically reload files when changed
 vim.o["autowrite"]      = true -- automatically save before commands like :next and :make
 vim.o["cmdheight"]      = 1 -- height of command bar
 vim.o["termguicolors"]  = true -- enable 24-bit RGB colors
--- space as leader
+vim.o["conceallevel"]   = 0
+vim.o["foldlevelstart"] = 99
+vim.o["foldenable"]     = true
+vim.o["errorbells"]     = true
+vim.o["visualbell"]     = true
+vim.o["hidden"]         = true
+vim.o["magic"]          = true -- make regular
+vim.o["encoding"]       = "utf-8"
+--vim.o["viewoptions"]    = "folds,cursor,curdir,slash, unix"
+vim.o["sessionop"]      = "curdir,help, tabpages, winsize"
+vim.o["wildignorecase"] = true
+vim.o["wildignore"]     = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**"
+vim.o["winwinwidth"]    = 10;
+
+
+
 vim.g.mapleader = " "
 
 -- vim.o["colorscheme"] = "gruvbox"

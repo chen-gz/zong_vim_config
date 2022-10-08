@@ -1,10 +1,5 @@
 local config = {}
 
-function config.lspsaga()
-    local saga = require("lspsaga")
-    saga.init_lsp_saga({})
-end
-
 function config.telescope()
     local telescope = require('telescope');
     telescope.extensions = {

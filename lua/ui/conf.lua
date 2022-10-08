@@ -30,5 +30,8 @@ end
 function config.gruvbox()
     vim.cmd("colorscheme gruvbox")
 end
+function config.vim_matchup()
+    vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+end
 
 return config
