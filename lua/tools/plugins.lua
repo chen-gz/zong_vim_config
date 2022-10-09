@@ -32,3 +32,7 @@ use {
 }
 -- use 'abecodes/tabout.nvim'
 use 'dstein64/vim-startuptime'
+--use {
+--    'mhartington/formatter.nvim',
+--    config = config.formatter,
+--}

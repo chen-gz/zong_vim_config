@@ -1,8 +1,12 @@
 --lua-language-server
 local vim = vim
 
+
 local config = {}
 -- config for markdown language
+vim.api.nvim_set_option_value("foldmethod", "expr", {})
+vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
+
 
 
 
@@ -36,8 +40,15 @@ function config.nvim_treesitter()
     }
 end
 
+--local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+--capabilities.offsetEncoding = {"utf-16"}
+--capabilities.textDocument.semanticHighlighting = true
+
 function config.lspconfig()
+    --local capabilities = vim.lsp.protocol.make_client_capabilities()
+    --capabilities.offsetEncoding = { "utf-16" }
     -- lsp config
+    --require('lspconfig').clangd.setup { capabilities = capabilities, }
     require('lspconfig')['marksman'].setup {}
 
     require 'lspconfig'.sumneko_lua.setup {}
@@ -47,8 +58,18 @@ function config.lspconfig()
         --    return vim.loop.cwd()
         --end
     }
+
+
     -- set lsp for c/cpp
-    require('lspconfig')['clangd'].setup {}
+    --local cap = vim.lsp.protocol.make_client_capabilities()
+    --
+    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+    -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
+    --capabilities = capabilities
+    -- }
+    --clangd_capabilities.textDocument.semanticHighlighting = true
+    --capabilities.offsetEncoding = { "utf-8" }
+    -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
 function config.lspsaga()

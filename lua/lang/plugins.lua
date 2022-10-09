@@ -2,7 +2,11 @@ local use = require('packer').use
 local vim = vim
 local config = require('lang.conf')
 
-use { 'neovim/nvim-lspconfig', opt = false, event = "BufReadPre", config = config.lspconfig, }
+use { 'neovim/nvim-lspconfig', opt = false, config = config.lspconfig,
+    requires = {
+        'hrsh7th/cmp-nvim-lsp',
+    }
+}
 use { 'glepnir/lspsaga.nvim', opt = false, after = "nvim-lspconfig", config = config.lspsaga, }
 use { 'ray-x/lsp_signature.nvim', opt = true, after = "nvim-lspconfig", }
 use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig', }
@@ -39,3 +43,8 @@ use { 'vim-pandoc/vim-pandoc-syntax' }
 
 vim.cmd([[autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc]])
 vim.cmd([[let g:pandoc#syntax#conceal#use = 0]])
+
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
+require('lspconfig').clangd.setup({ capabilities = capabilities })
