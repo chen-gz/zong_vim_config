@@ -33,14 +33,19 @@ use {
     },
 }
 
-use { "L3MON4D3/LuaSnip", config = config.luasnip, requires = "rafamadriz/friendly-snippets"}
+use { "L3MON4D3/LuaSnip", config = config.luasnip, requires = "rafamadriz/friendly-snippets" }
 
 use { 'windwp/nvim-autopairs', config = config.autopairs, }
 
 -----------------------------------------------------
 use { 'vim-pandoc/vim-pandoc-syntax' }
+use {
+    'windwp/nvim-ts-autotag',
+    config = config.nvim_ts_autotag,
+}
 
 vim.cmd([[autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc]])
 vim.cmd([[let g:pandoc#syntax#conceal#use = 0]])
+
 
 

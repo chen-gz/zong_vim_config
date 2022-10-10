@@ -44,6 +44,7 @@ vim.api.nvim_set_keymap('n', '<leader>s', "<Esc><cmd>w!<CR>", { noremap = true, 
 vim.api.nvim_set_keymap('i', '<C-s>', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<C-s>', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<leader>f', "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true });
+vim.api.nvim_set_keymap('i', '<F5>', "<Esc><Cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<F5>', "<Esc><Cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('t', '<F5>', "<C-\\><C-n><Esc><Cmd>ToggleTerm direction=float<CR>",
     { noremap = true, silent = true });

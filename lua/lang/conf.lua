@@ -422,4 +422,15 @@ function config.mason_install()
     })
 end
 
+config.nvim_ts_autotag = function()
+    require 'nvim-treesitter.configs'.setup {
+        -- for nvim-ts-autotag
+        autotag = {
+            enable = true,
+
+        }
+    }
+
+end
+
 return config;
