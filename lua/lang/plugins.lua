@@ -33,8 +33,7 @@ use {
     },
 }
 
-use { "L3MON4D3/LuaSnip" }
--- config = config.luasnip, requires = "rafamadriz/friendly-snippets", }
+use { "L3MON4D3/LuaSnip", config = config.luasnip, requires = "rafamadriz/friendly-snippets"}
 
 use { 'windwp/nvim-autopairs', config = config.autopairs, }
 
@@ -45,6 +44,3 @@ vim.cmd([[autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pando
 vim.cmd([[let g:pandoc#syntax#conceal#use = 0]])
 
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.offsetEncoding = { "utf-16" }
-require('lspconfig').clangd.setup({ capabilities = capabilities })

@@ -1,0 +1,23 @@
+{
+	"beg": {
+		"prefix": "beg",
+		"body": [
+            "\\begin{equation}"
+		],
+		"description": "begin equation"
+	},
+	"end": {
+		"prefix": "end",
+		"body": [
+            "\\end{equation}"
+		],
+		"description": "end equation"
+	},
+	"label": {
+		"prefix": "la",
+		"body": [
+            "\\label{eq_$1}"
+		],
+		"description": "label"
+	}
+}

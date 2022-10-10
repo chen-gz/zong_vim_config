@@ -1,11 +1,9 @@
 --lua-language-server
-local vim = vim
-
-
 local config = {}
+--local vim = vim
+
+
 -- config for markdown language
-vim.api.nvim_set_option_value("foldmethod", "expr", {})
-vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
 
 
@@ -19,7 +17,9 @@ function config.copilot_cmp()
 
 end
 
-function config.nvim_treesitter()
+config.nvim_treesitter = function()
+    vim.api.nvim_set_option_value("foldmethod", "expr", {})
+    vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
     -- vim.api.nvim_set_option_value("foldmethod", "expr", {})
     -- vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
@@ -58,6 +58,10 @@ function config.lspconfig()
         --    return vim.loop.cwd()
         --end
     }
+
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.offsetEncoding = { "utf-16" }
+    require('lspconfig').clangd.setup({ capabilities = capabilities })
 
 
     -- set lsp for c/cpp
@@ -339,8 +343,8 @@ function config.cmp()
     --autopairs()
 end
 
+vim.o.runtimepath = vim.o.runtimepath .. "," .. os.getenv("HOME") .. "/.config/nvim/my-snippets/,"
 function config.luasnip()
-    vim.o.runtimepath = vim.o.runtimepath .. "," .. os.getenv("HOME") .. "/.config/nvim/my-snippets/,"
     require("luasnip").config.set_config({
         history = true,
         updateevents = "TextChanged,TextChangedI",
