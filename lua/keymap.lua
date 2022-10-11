@@ -57,5 +57,8 @@ vim.api.nvim_set_keymap('v', '<BS>', "<cmd>'<,'>CommentToggle<CR>", { noremap = 
 vim.api.nvim_set_keymap('n', '<BS>', "<cmd>CommentToggle<CR>", { noremap = true, silent = true });
 
 vim.api.nvim_set_keymap('n', '<Tab>', "<cmd>normal za<CR>", { noremap = true, silent = true });
+
+-- ["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
+vim.api.nvim_set_keymap('n', 'K', "<cmd>Lspsaga hover_doc<CR>", { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', '<Tab>', "<cmd>normal zc<CR>", { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', '<S-Tab>', "<cmd>normal zo<CR>", { noremap = true, silent = true });
