@@ -44,6 +44,7 @@ vim.api.nvim_set_keymap('n', '<leader>s', "<Esc><cmd>w!<CR>", { noremap = true, 
 vim.api.nvim_set_keymap('i', '<C-s>', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<C-s>', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<leader>f', "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true });
+vim.api.nvim_set_keymap('i', '<F5>', "<Esc><Cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<F5>', "<Esc><Cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('t', '<F5>', "<C-\\><C-n><Esc><Cmd>ToggleTerm direction=float<CR>",
     { noremap = true, silent = true });
@@ -56,5 +57,8 @@ vim.api.nvim_set_keymap('v', '<BS>', "<cmd>'<,'>CommentToggle<CR>", { noremap = 
 vim.api.nvim_set_keymap('n', '<BS>', "<cmd>CommentToggle<CR>", { noremap = true, silent = true });
 
 vim.api.nvim_set_keymap('n', '<Tab>', "<cmd>normal za<CR>", { noremap = true, silent = true });
+
+-- ["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
+vim.api.nvim_set_keymap('n', 'K', "<cmd>Lspsaga hover_doc<CR>", { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', '<Tab>', "<cmd>normal zc<CR>", { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', '<S-Tab>', "<cmd>normal zo<CR>", { noremap = true, silent = true });

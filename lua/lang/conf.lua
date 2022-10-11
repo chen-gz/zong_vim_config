@@ -200,7 +200,7 @@ function config.cmp()
             },
         },
         mapping = cmp.mapping.preset.insert({
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            ['<S-CR>'] = cmp.mapping.confirm({ select = true }),
             ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
             ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
             ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -420,6 +420,17 @@ function config.mason_install()
         -- Default: true
         run_on_start = true,
     })
+end
+
+config.nvim_ts_autotag = function()
+    require 'nvim-treesitter.configs'.setup {
+        -- for nvim-ts-autotag
+        autotag = {
+            enable = true,
+
+        }
+    }
+
 end
 
 return config;
