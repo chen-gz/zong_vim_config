@@ -15,6 +15,7 @@ use {
     requires = 'kyazdani42/nvim-web-devicons',
     config = config.nvim_tree,
 }
+use 'kyazdani42/nvim-web-devicons'
 
 use {
     'lewis6991/gitsigns.nvim', -- git signs
@@ -24,6 +25,16 @@ use {
 use {
     'feline-nvim/feline.nvim', -- status bar line
     config = config.feline
+    --config = function()
+    --    local ctp_feline = require('catppuccin.groups.integrations.feline')
+
+    --    ctp_feline.setup()
+
+    --    require("feline").setup({
+    --        components = ctp_feline.get(),
+    --    })
+
+    --end
 }
 use {
     'j-hui/fidget.nvim', -- for nvim-lsp progress
@@ -56,5 +67,14 @@ use { 'anuvyklack/fold-preview.nvim',
         keymap.amend('n', 'zc', map.close_preview_without_defer)
         keymap.amend('n', 'zR', map.close_preview)
         keymap.amend('n', 'zM', map.close_preview_without_defer)
+    end
+}
+use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+        vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+        require("catppuccin").setup()
+        vim.api.nvim_command "colorscheme catppuccin"
     end
 }

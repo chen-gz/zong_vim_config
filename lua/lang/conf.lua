@@ -9,7 +9,12 @@ local config = {}
 
 
 function config.copilot()
-    require("copilot").setup()
+    require('copilot').setup({
+        filetypes = {
+            python = true,
+            ["*"] = false,
+        },
+    })
 end
 
 function config.copilot_cmp()
