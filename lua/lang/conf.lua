@@ -26,8 +26,6 @@ config.nvim_treesitter = function()
     vim.api.nvim_set_option_value("foldmethod", "expr", {})
     vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
-    -- vim.api.nvim_set_option_value("foldmethod", "expr", {})
-    -- vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
     require 'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all"
         ensure_installed      = { "c", "lua", "cpp", },
@@ -45,114 +43,92 @@ config.nvim_treesitter = function()
     }
 end
 
---local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---capabilities.offsetEncoding = {"utf-16"}
---capabilities.textDocument.semanticHighlighting = true
 
 function config.lspconfig()
-    --local capabilities = vim.lsp.protocol.make_client_capabilities()
-    --capabilities.offsetEncoding = { "utf-16" }
-    -- lsp config
-    --require('lspconfig').clangd.setup { capabilities = capabilities, }
     require('lspconfig')['marksman'].setup {}
 
     require 'lspconfig'.sumneko_lua.setup {}
-    require('lspconfig')['pylsp'].setup {
-        -- on_attach = on_attach,
-        --root_dir = function(fname)
-        --    return vim.loop.cwd()
-        --end
-    }
+    require('lspconfig')['pylsp'].setup {}
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.offsetEncoding = { "utf-16" }
     require('lspconfig').clangd.setup({ capabilities = capabilities })
 
 
-    -- set lsp for c/cpp
-    --local cap = vim.lsp.protocol.make_client_capabilities()
-    --
-    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    --capabilities = capabilities
-    -- }
-    --clangd_capabilities.textDocument.semanticHighlighting = true
-    --capabilities.offsetEncoding = { "utf-8" }
-    -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
 function config.lspsaga()
-    --local function set_sidebar_icons()
-    --    -- Set icons for sidebar.
-    --    local diagnostic_icons = {
-    --        Error = " ",
-    --        Warn = " ",
-    --        Info = " ",
-    --        Hint = " ",
-    --    }
-    --    for type, icon in pairs(diagnostic_icons) do
-    --        local hl = "DiagnosticSign" .. type
-    --        vim.fn.sign_define(hl, { text = icon, texthl = hl })
-    --    end
-    --end
+    local function set_sidebar_icons()
+        -- Set icons for sidebar.
+        local diagnostic_icons = {
+            Error = " ",
+            Warn = " ",
+            Info = " ",
+            Hint = " ",
+        }
+        for type, icon in pairs(diagnostic_icons) do
+            local hl = "DiagnosticSign" .. type
+            vim.fn.sign_define(hl, { text = icon, texthl = hl })
+        end
+    end
 
-    --local function get_palette()
-    --    if vim.g.colors_name == "catppuccin" then
-    --        -- If the colorscheme is catppuccin then use the palette.
-    --        return require("catppuccin.palettes").get_palette()
-    --    else
-    --        -- Default behavior: return lspsaga's default palette.
-    --        local palette = require("lspsaga.lspkind").colors
-    --        palette.peach = palette.orange
-    --        palette.flamingo = palette.orange
-    --        palette.rosewater = palette.yellow
-    --        palette.mauve = palette.violet
-    --        palette.sapphire = palette.blue
-    --        palette.maroon = palette.orange
+    local function get_palette()
+        if vim.g.colors_name == "catppuccin" then
+            -- If the colorscheme is catppuccin then use the palette.
+            return require("catppuccin.palettes").get_palette()
+        else
+            -- Default behavior: return lspsaga's default palette.
+            local palette = require("lspsaga.lspkind").colors
+            palette.peach = palette.orange
+            palette.flamingo = palette.orange
+            palette.rosewater = palette.yellow
+            palette.mauve = palette.violet
+            palette.sapphire = palette.blue
+            palette.maroon = palette.orange
 
-    --        return palette
-    --    end
-    --end
+            return palette
+        end
+    end
 
-    --set_sidebar_icons()
+    set_sidebar_icons()
 
-    --local colors = get_palette()
+    local colors = get_palette()
 
     require("lspsaga").init_lsp_saga({
-        --diagnostic_header = { " ", " ", "  ", " " },
-        --custom_kind = {
-        --    File = { " ", colors.rosewater },
-        --    Module = { " ", colors.blue },
-        --    Namespace = { " ", colors.blue },
-        --    Package = { " ", colors.blue },
-        --    Class = { "ﴯ ", colors.yellow },
-        --    Method = { " ", colors.blue },
-        --    Property = { "ﰠ ", colors.teal },
-        --    Field = { " ", colors.teal },
-        --    Constructor = { " ", colors.sapphire },
-        --    Enum = { " ", colors.yellow },
-        --    Interface = { " ", colors.yellow },
-        --    Function = { " ", colors.blue },
-        --    Variable = { " ", colors.peach },
-        --    Constant = { " ", colors.peach },
-        --    String = { " ", colors.green },
-        --    Number = { " ", colors.peach },
-        --    Boolean = { " ", colors.peach },
-        --    Array = { " ", colors.peach },
-        --    Object = { " ", colors.yellow },
-        --    Key = { " ", colors.red },
-        --    Null = { "ﳠ ", colors.yellow },
-        --    EnumMember = { " ", colors.teal },
-        --    Struct = { " ", colors.yellow },
-        --    Event = { " ", colors.yellow },
-        --    Operator = { " ", colors.sky },
-        --    TypeParameter = { " ", colors.maroon },
-        --    -- ccls-specific icons.
-        --    TypeAlias = { " ", colors.green },
-        --    Parameter = { " ", colors.blue },
-        --    StaticMethod = { "ﴂ ", colors.peach },
-        --    Macro = { " ", colors.red },
-        --},
+        diagnostic_header = { " ", " ", "  ", " " },
+        custom_kind = {
+            File = { " ", colors.rosewater },
+            Module = { " ", colors.blue },
+            Namespace = { " ", colors.blue },
+            Package = { " ", colors.blue },
+            Class = { "ﴯ ", colors.yellow },
+            Method = { " ", colors.blue },
+            Property = { "ﰠ ", colors.teal },
+            Field = { " ", colors.teal },
+            Constructor = { " ", colors.sapphire },
+            Enum = { " ", colors.yellow },
+            Interface = { " ", colors.yellow },
+            Function = { " ", colors.blue },
+            Variable = { " ", colors.peach },
+            Constant = { " ", colors.peach },
+            String = { " ", colors.green },
+            Number = { " ", colors.peach },
+            Boolean = { " ", colors.peach },
+            Array = { " ", colors.peach },
+            Object = { " ", colors.yellow },
+            Key = { " ", colors.red },
+            Null = { "ﳠ ", colors.yellow },
+            EnumMember = { " ", colors.teal },
+            Struct = { " ", colors.yellow },
+            Event = { " ", colors.yellow },
+            Operator = { " ", colors.sky },
+            TypeParameter = { " ", colors.maroon },
+            -- ccls-specific icons.
+            TypeAlias = { " ", colors.green },
+            Parameter = { " ", colors.blue },
+            StaticMethod = { "ﴂ ", colors.peach },
+            Macro = { " ", colors.red },
+        },
     })
 end
 
@@ -240,16 +216,9 @@ function config.cmp()
             { name = 'buffer' },
             { name = 'path' },
             { name = 'spell' },
-            --{ name = 'tmux' },
             { name = 'orgmode' },
             { name = 'latex_symbols' },
-
             { name = 'copilot' },
-
-            -- { name = 'vsnip' }, -- For vsnip users.
-            -- { name = 'luasnip' }, -- For luasnip users.
-            -- { name = 'ultisnips' }, -- For ultisnips users.
-            -- { name = 'snippy' }, -- For snippy users.
             { name = 'buffer' },
         },
 

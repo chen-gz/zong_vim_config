@@ -3,9 +3,7 @@ local vim = vim
 local config = require('lang.conf')
 
 use { 'neovim/nvim-lspconfig', opt = false, config = config.lspconfig,
-    requires = {
-        'hrsh7th/cmp-nvim-lsp',
-    }
+    requires = { 'hrsh7th/cmp-nvim-lsp', }
 }
 use { 'glepnir/lspsaga.nvim', opt = false, after = "nvim-lspconfig", config = config.lspsaga, }
 use { 'ray-x/lsp_signature.nvim', opt = true, after = "nvim-lspconfig", }
@@ -37,7 +35,7 @@ use { "L3MON4D3/LuaSnip", config = config.luasnip, requires = "rafamadriz/friend
 
 use { 'windwp/nvim-autopairs', config = config.autopairs, }
 
------------------------------------------------------
+-- -------------------------------------------------------
 use { 'vim-pandoc/vim-pandoc-syntax' }
 use {
     'windwp/nvim-ts-autotag',
