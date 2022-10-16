@@ -20,7 +20,12 @@ function config.gitsigns()
 end
 
 function config.fidget()
-    require('fidget').setup()
+    require("fidget").setup {
+        window = {
+            blend = 0,
+        },
+        -- ... the rest of your fidget config
+    }
 end
 
 function config.feline()

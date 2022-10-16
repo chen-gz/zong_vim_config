@@ -12,9 +12,6 @@ use { 'nvim-treesitter/nvim-treesitter', config = config.nvim_treesitter }
 use { 'zbirenbaum/copilot.lua', config = config.copilot }
 use { 'zbirenbaum/copilot-cmp', config = config.copilot_cmp }
 
-
---use { "hrsh7th/cmp-nvim-lsp" }
-
 use {
     'hrsh7th/nvim-cmp',
     config = config.cmp,
@@ -35,7 +32,6 @@ use { "L3MON4D3/LuaSnip", config = config.luasnip, requires = "rafamadriz/friend
 
 use { 'windwp/nvim-autopairs', config = config.autopairs, }
 
--- -------------------------------------------------------
 use { 'vim-pandoc/vim-pandoc-syntax' }
 use {
     'windwp/nvim-ts-autotag',

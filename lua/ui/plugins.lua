@@ -17,25 +17,9 @@ use {
 }
 use 'kyazdani42/nvim-web-devicons'
 
-use {
-    'lewis6991/gitsigns.nvim', -- git signs
-    config = config.gitsigns
-}
+use { 'lewis6991/gitsigns.nvim', config = config.gitsigns }
 
-use {
-    'feline-nvim/feline.nvim', -- status bar line
-    config = config.feline
-    --config = function()
-    --    local ctp_feline = require('catppuccin.groups.integrations.feline')
-
-    --    ctp_feline.setup()
-
-    --    require("feline").setup({
-    --        components = ctp_feline.get(),
-    --    })
-
-    --end
-}
+use { 'feline-nvim/feline.nvim', config = config.feline }
 use {
     'j-hui/fidget.nvim', -- for nvim-lsp progress
     config = config.fidget
@@ -73,8 +57,20 @@ use {
     "catppuccin/nvim",
     as = "catppuccin",
     config = function()
-        vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-        require("catppuccin").setup()
-        vim.api.nvim_command "colorscheme catppuccin"
+        vim.g.catppuccin_flavour = "mocha"; -- latte, frappe, macchiato, mocha
+        require("catppuccin").setup({
+            integrations = {
+                gitsigns = true,
+                nvimtree = true,
+                cmp = true,
+                dap = {
+                    enabled = true,
+                    enable_ui = true, -- enable nvim-dap-ui
+                },
+                fidget = true,
+            }
+
+        });
+        vim.api.nvim_command "colorscheme catppuccin";
     end
 }

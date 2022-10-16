@@ -347,13 +347,13 @@ function config.autopairs()
             filetypes = {
                 -- "*" is an alias to all filetypes
                 ["*"] = {
-                    ["("] = {
-                        kind = {
-                            cmp.lsp.CompletionItemKind.Function,
-                            cmp.lsp.CompletionItemKind.Method,
-                        },
-                        handler = handlers["*"],
-                    },
+                    -- ["("] = {
+                    --     kind = {
+                    --         cmp.lsp.CompletionItemKind.Function,
+                    --         cmp.lsp.CompletionItemKind.Method,
+                    --     },
+                    --     handler = handlers["*"],
+                    -- },
                 },
                 -- Disable for tex
                 tex = false,
