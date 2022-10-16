@@ -42,12 +42,13 @@ vim.o["cursorline"]     = true -- highlight current line
 vim.o["cursorcolumn"]   = false -- highlight current column
 vim.o["virtualedit"]    = "all" -- allow cursor to move in virtual space
 -- vim.o["guifont"]        = "Source Code Pro:h14" -- font for gui
-vim.o["guifont"]        = "JetBrains Mono Regular:h14"
+vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h18" }
 vim.o["fileformat"]     = "unix" -- always use unix line endings (LF)
 vim.o["spelllang"]      = "en_us" -- set spell check language
 vim.o["spell"]          = false -- enable spell checking
 vim.o["scrolloff"]      = 8 -- lines of content to keep above and below cursor
 vim.o["autoread"]       = true -- automatically reload files when changed
+vim.cmd("au FocusGained * :checktime")
 vim.o["autowrite"]      = true -- automatically save before commands like :next and :make
 vim.o["cmdheight"]      = 1 -- height of command bar
 vim.o["termguicolors"]  = true -- enable 24-bit RGB colors
@@ -60,10 +61,11 @@ vim.o["hidden"]         = true
 vim.o["magic"]          = true -- make regular
 vim.o["encoding"]       = "utf-8"
 --vim.o["viewoptions"]    = "folds,cursor,curdir,slash, unix"
-vim.o["sessionop"]      = "curdir,help, tabpages, winsize"
+-- vim.o["sessionop"]      = "curdir,help, tabpages, winsize"
 vim.o["wildignorecase"] = true
 vim.o["wildignore"]     = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**"
-vim.o["winwinwidth"]    = 10;
+vim.o['signcolumn']     = "yes"
+-- vim.o["winwinwidth"]    = 10;
 
 
 
