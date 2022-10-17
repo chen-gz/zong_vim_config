@@ -45,10 +45,15 @@ vim.api.nvim_set_keymap('n', '<leader>s', "<Esc><cmd>w!<CR>", { noremap = true, 
 vim.api.nvim_set_keymap('i', '<C-s>', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<C-s>', "<Esc><cmd>w!<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<leader>f', "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('i', '<A-d>', "<Esc><Cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('n', '<A-d>', "<Esc><Cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('t', '<A-d>', "<C-\\><C-n><Esc><Cmd>ToggleTerm direction=float<CR>",
+vim.api.nvim_set_keymap('i', '<C-Enter>', "<Esc><Cmd>ToggleTerm size=40 direction=vertical<CR>",
     { noremap = true, silent = true });
+vim.api.nvim_set_keymap('t', '<C-Enter>', "<Esc><Cmd>ToggleTerm size=40 direction=vertical<CR>",
+    { noremap = true, silent = true });
+vim.api.nvim_set_keymap('n', '<C-Enter>', "<Esc><Cmd>ToggleTerm size=40 direction=vertical<CR>",
+    { noremap = true, silent = true });
+-- vim.api.nvim_set_keymap('n', '<A-d>', "<Esc><Cmd>ToggleTerm direction=float<CR>", { noremap = true, silent = true });
+-- vim.api.nvim_set_keymap('t', '<A-d>', "<C-\\><C-n><Esc><Cmd>ToggleTerm direction=float<CR>",
+-- { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', '<A-d>', "<cmd>Lspsage open_floaterm<CR>", {silent = true})
 -- vim.api.nvim_set_keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 vim.api.nvim_set_keymap('n', 'gd', "<cmd>Lspsaga peek_definition<CR>", { noremap = true, silent = true });
@@ -75,7 +80,7 @@ vim.api.nvim_set_keymap("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", {
 vim.api.nvim_set_keymap("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", { silent = true })
 -- nnoremap <silent> <Leader>B <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-vim.api.nvim_set_keymap("n", '<Leader> B', "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", '<Leader> B',
+    "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { silent = true })
 -- --    nnoremap <silent> <Leader>lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 vim.api.nvim_set_keymap("n", "<Leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", { silent = true })
--- --    nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
