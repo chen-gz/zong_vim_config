@@ -26,3 +26,4 @@ vim.cmd("let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * 
 vim.cmd("let g:neovide_transparency = 0.9")
 vim.cmd("let g:neovide_refresh_rate = 120")
 vim.cmd("let g:neovide_no_idle = v:true")
+vim.cmd("autocmd BufWritePre * :lua vim.lsp.buf.format()")
