@@ -84,3 +84,15 @@ vim.api.nvim_set_keymap("n", '<Leader> B',
     "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { silent = true })
 -- --    nnoremap <silent> <Leader>lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 vim.api.nvim_set_keymap("n", "<Leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", { silent = true })
+
+vim.api.nvim_set_keymap('n', '<A-1>', "<Cmd>BufferLineGoToBuffer 1<CR>", { silent = true })
+vim.api.nvim_set_keymap('n', '¡', "<Cmd>BufferLineGoToBuffer 1<CR>", { silent = true }) -- for macos
+
+vim.api.nvim_set_keymap('n', '<A-2>', "<Cmd>BufferLineGoToBuffer 2<CR>", { silent = true })
+vim.api.nvim_set_keymap('n', '™', "<Cmd>BufferLineGoToBuffer 2<CR>", { silent = true }) -- for macos
+
+vim.api.nvim_set_keymap('n', '<A-3>', "<Cmd>BufferLineGoToBuffer 3<CR>", { silent = true })
+vim.api.nvim_set_keymap('n', '£', "<Cmd>BufferLineGoToBuffer 2<CR>", { silent = true }) -- for macos
+
+vim.api.nvim_set_keymap('n', '<A-4>', "<Cmd>BufferLineGoToBuffer 4<CR>", { silent = true })
+vim.api.nvim_set_keymap('n', '¢', "<Cmd>BufferLineGoToBuffer 4<CR>", { silent = true }) -- for macos
