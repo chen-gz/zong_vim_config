@@ -17,7 +17,14 @@ use {
 }
 use { 'max397574/better-escape.nvim', config = config.better_escape }
 
-use { 'terrortylor/nvim-comment', config = config.nvim_comment }
+-- use { 'terrortylor/nvim-comment', config = config.nvim_comment }
+-- use { 'preservim/nerdcommenter', opt = true }
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
 
 use { 'dstein64/vim-startuptime' }
 --use {
@@ -52,16 +59,10 @@ use {
     after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
 }
 
-use { 'mfussenegger/nvim-dap', config = config.dap }
+-- use { 'mfussenegger/nvim-dap', config = config.dap }
+-- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, config = config.dapui }
 
-use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, config= config.dapui}
-
--- using packer.nvim
 use {
     'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons';
-    config = function()
-        require("bufferline").setup {}
-
-    end
+    config = function() require("bufferline").setup {} end
 }
-

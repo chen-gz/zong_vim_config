@@ -61,8 +61,8 @@ vim.api.nvim_set_keymap('n', 'gD', "<cmd>lua vim.lsp.buf.definition()<CR>", { no
 vim.api.nvim_set_keymap('n', 'gh', "<cmd>Lspsaga lsp_finder<CR>", { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', '/', "<cmd>SearchBoxIncSearch<CR>", { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', ':', "<cmd>FineCmdline<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('v', '<BS>', "<cmd>'<,'>CommentToggle<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('n', '<BS>', "<cmd>CommentToggle<CR>", { noremap = true, silent = true });
+-- vim.api.nvim_set_keymap('v', '<BS>', "<cmd>'<,'>CommentToggle<CR>", { noremap = true, silent = true });
+-- vim.api.nvim_set_keymap('n', '<BS>', "<cmd>CommentToggle<CR>", { noremap = true, silent = true });
 
 -- vim.api.nvim_set_keymap('n', '<Tab>', "<cmd>normal za<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', 'K', "<cmd>Lspsaga hover_doc<CR>", { noremap = true, silent = true });

@@ -31,11 +31,6 @@ function config.better_escape()
     }
 end
 
-function config.nvim_comment()
-    require("nvim_comment").setup()
-
-end
-
 function config.formatter()
 
     -- Utilities for creating configurations
