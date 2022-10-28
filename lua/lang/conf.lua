@@ -2,12 +2,7 @@
 local config = {}
 --local vim = vim
 
-
 -- config for markdown language
-
-
-
-
 function config.copilot()
     require('copilot').setup({
         filetypes = {
@@ -53,6 +48,14 @@ function config.lspconfig()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.offsetEncoding = { "utf-16" }
     require('lspconfig').clangd.setup({ capabilities = capabilities })
+    require('lspconfig')['rust_analyzer'].setup {
+        on_attach = on_attach,
+        flags = lsp_flags,
+        -- Server-specific settings...
+        settings = {
+            ["rust-analyzer"] = {}
+        }
+    }
     require('lspconfig').jsonls.setup {}
 
 

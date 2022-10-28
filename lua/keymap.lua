@@ -59,8 +59,8 @@ vim.api.nvim_set_keymap('n', '<C-Enter>', "<Esc><Cmd>ToggleTerm size=40 directio
 vim.api.nvim_set_keymap('n', 'gd', "<cmd>Lspsaga peek_definition<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', 'gD', "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', 'gh', "<cmd>Lspsaga lsp_finder<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('n', '/', "<cmd>SearchBoxIncSearch<CR>", { noremap = true, silent = true });
-vim.api.nvim_set_keymap('n', ':', "<cmd>FineCmdline<CR>", { noremap = true, silent = true });
+-- vim.api.nvim_set_keymap('n', '/', "<cmd>SearchBoxIncSearch<CR>", { noremap = true, silent = true });
+-- vim.api.nvim_set_keymap('n', ':', "<cmd>FineCmdline<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('v', '<BS>', "<cmd>'<,'>CommentToggle<CR>", { noremap = true, silent = true });
 vim.api.nvim_set_keymap('n', '<BS>', "<cmd>CommentToggle<CR>", { noremap = true, silent = true });
 

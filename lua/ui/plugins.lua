@@ -1,40 +1,52 @@
 local use = require('packer').use
-local config = require('ui.conf')
+-- local config = require('ui.conf')
 
 use {
     'lukas-reineke/indent-blankline.nvim', -- indent lines
-    config = config.indent_blankline
+    config = function()
+        require("indent_blankline").setup {
+            show_current_context = true,
+            show_current_context_start = true,
+        }
+    end
 }
 
-use {
-    "ellisonleao/gruvbox.nvim", -- colorscheme
-    config = config.gruvbox
-}
-use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = config.nvim_tree,
-}
+use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require('nvim-tree').setup {} end }
 use 'kyazdani42/nvim-web-devicons'
 
-use { 'lewis6991/gitsigns.nvim', config = config.gitsigns }
+use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
 
-use { 'feline-nvim/feline.nvim', config = config.feline }
 use {
-    'j-hui/fidget.nvim', -- for nvim-lsp progress
-    config = config.fidget
+    'feline-nvim/feline.nvim',
+    config = function()
+        local ctp_feline = require('catppuccin.groups.integrations.feline')
+        require("feline").setup({
+            components = ctp_feline.get(),
+        })
+
+    end
 }
 
-use { 'VonHeikemen/searchbox.nvim', requires = { { 'MunifTanjim/nui.nvim' } } }
-use { 'VonHeikemen/fine-cmdline.nvim', requires = { { 'MunifTanjim/nui.nvim' } } }
+use {
+    'j-hui/fidget.nvim', -- for nvim-lsp progress
+    config = function()
+        require("fidget").setup { window = { blend = 0, }, }
+    end
+}
+
 use {
     'andymass/vim-matchup', -- for % and other matching
-    config = config.vim_matchup
-
+    config = function()
+        vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+    end
 }
 use {
     'anuvyklack/pretty-fold.nvim',
-    config = config.pretty_fold
+    config = function()
+
+        require('pretty-fold').setup {}
+    end
 }
 use { 'anuvyklack/fold-preview.nvim',
     requires = 'anuvyklack/keymap-amend.nvim',
@@ -45,12 +57,6 @@ use { 'anuvyklack/fold-preview.nvim',
         local map = require('fold-preview').mapping
 
         keymap.amend('n', 'h', map.show_close_preview_open_fold)
-        keymap.amend('n', 'l', map.close_preview_open_fold)
-        keymap.amend('n', 'zo', map.close_preview)
-        keymap.amend('n', 'zO', map.close_preview)
-        keymap.amend('n', 'zc', map.close_preview_without_defer)
-        keymap.amend('n', 'zR', map.close_preview)
-        keymap.amend('n', 'zM', map.close_preview_without_defer)
     end
 }
 use {
