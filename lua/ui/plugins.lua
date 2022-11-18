@@ -1,5 +1,4 @@
 local use = require('packer').use
--- local config = require('ui.conf')
 
 use {
     'lukas-reineke/indent-blankline.nvim', -- indent lines
@@ -11,9 +10,9 @@ use {
     end
 }
 
-use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('nvim-tree').setup {} end }
-use 'kyazdani42/nvim-web-devicons'
+-- use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
+--     config = function() require('nvim-tree').setup {} end }
+-- use 'kyazdani42/nvim-web-devicons'
 
 use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
 
@@ -42,6 +41,8 @@ use {
         vim.g.matchup_matchparen_offscreen = { method = 'popup' }
     end
 }
+
+-- fold
 use {
     'anuvyklack/pretty-fold.nvim',
     config = function()
@@ -49,6 +50,7 @@ use {
         require('pretty-fold').setup {}
     end
 }
+
 use { 'anuvyklack/fold-preview.nvim',
     requires = 'anuvyklack/keymap-amend.nvim',
     config = function()
@@ -60,6 +62,8 @@ use { 'anuvyklack/fold-preview.nvim',
         keymap.amend('n', 'h', map.show_close_preview_open_fold)
     end
 }
+
+-- theme
 use {
     "catppuccin/nvim",
     as = "catppuccin",
@@ -81,23 +85,3 @@ use {
         vim.api.nvim_command "colorscheme catppuccin";
     end
 }
---use {
---    "xiyaowong/nvim-transparent",
---    config = function()
---        require("transparent").setup({
---            enable = true, -- boolean: enable transparent
---            extra_groups = { -- table/string: additional groups that should be cleared
---                -- In particular, when you set it to 'all', that means all available groups
---
---                -- example of akinsho/nvim-bufferline.lua
---                "BufferLineTabClose",
---                "BufferlineBufferSelected",
---                "BufferLineFill",
---                "BufferLineBackground",
---                "BufferLineSeparator",
---                "BufferLineIndicatorSelected",
---            },
---            exclude = {}, -- table: groups you don't want to clear
---        })
---    end
---}
