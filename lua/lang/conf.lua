@@ -3,19 +3,19 @@ local config = {}
 --local vim = vim
 
 -- config for markdown language
-function config.copilot()
-    require('copilot').setup({
-        filetypes = {
-            python = true,
-            ["*"] = false,
-        },
-    })
-end
+-- function config.copilot()
+--     require('copilot').setup({
+--         filetypes = {
+--             python = true,
+--             ["*"] = false,
+--         },
+--     })
+-- end
 
-function config.copilot_cmp()
-    require("copilot_cmp").setup()
-
-end
+-- function config.copilot_cmp()
+--     require("copilot_cmp").setup()
+--
+-- end
 
 config.nvim_treesitter = function()
     vim.api.nvim_set_option_value("foldmethod", "expr", {})
@@ -34,14 +34,12 @@ config.nvim_treesitter = function()
             additional_vim_regex_highlighting = false,
         },
         context_commentstring = { enable = true, enable_autocmd = false, },
-        --matchup              = { enable = true, },
     }
 end
 
 
 function config.lspconfig()
     require('lspconfig')['marksman'].setup {}
-
     require 'lspconfig'.sumneko_lua.setup {}
     require('lspconfig')['pylsp'].setup {}
 
@@ -51,14 +49,11 @@ function config.lspconfig()
     require('lspconfig')['rust_analyzer'].setup {
         on_attach = on_attach,
         flags = lsp_flags,
-        -- Server-specific settings...
         settings = {
             ["rust-analyzer"] = {}
         }
     }
     require('lspconfig').jsonls.setup {}
-
-
 end
 
 function config.lspsaga()

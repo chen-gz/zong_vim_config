@@ -27,10 +27,6 @@ use {
 }
 
 use { 'dstein64/vim-startuptime' }
---use {
---    'mhartington/formatter.nvim',
---    config = config.formatter,
---}
 use {
     'abecodes/tabout.nvim',
     config = function()

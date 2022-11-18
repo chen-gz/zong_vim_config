@@ -1,4 +1,3 @@
-local vim = vim
 require('options')
 
 require('packer').startup(function(use)

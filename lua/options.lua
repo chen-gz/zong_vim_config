@@ -51,7 +51,7 @@ vim.o["scrolloff"]      = 8 -- lines of content to keep above and below cursor
 vim.o["autoread"]       = true -- automatically reload files when changed
 vim.cmd("au FocusGained * :checktime")
 vim.o["autowrite"]      = true -- automatically save before commands like :next and :make
-vim.o["cmdheight"]      = 0 -- height of command bar
+vim.o["cmdheight"]      = 1 -- height of command bar
 vim.o["termguicolors"]  = true -- enable 24-bit RGB colors
 vim.o["conceallevel"]   = 2
 vim.o["foldlevelstart"] = 99
