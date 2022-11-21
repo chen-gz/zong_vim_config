@@ -26,7 +26,6 @@ use {
     end
 }
 
-use { 'dstein64/vim-startuptime' }
 use {
     'abecodes/tabout.nvim',
     config = function()

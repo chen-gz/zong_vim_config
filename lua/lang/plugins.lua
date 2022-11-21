@@ -40,6 +40,3 @@ use {
 
 vim.cmd([[autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc]])
 vim.cmd([[let g:pandoc#syntax#conceal#use = 0]])
-
-
-

@@ -2,20 +2,50 @@
 local config = {}
 --local vim = vim
 
--- config for markdown language
--- function config.copilot()
---     require('copilot').setup({
---         filetypes = {
---             python = true,
---             ["*"] = false,
---         },
---     })
--- end
+--config for markdown language
+function config.copilot()
+    require('copilot').setup({
+        panel = {
+            enabled = true,
+            auto_refresh = false,
+            keymap = {
+                jump_prev = "[[",
+                jump_next = "]]",
+                accept = "<CR>",
+                refresh = "gr",
+                open = "<M-CR>"
+            },
+        },
+        suggestion = {
+            enabled = true,
+            auto_trigger = false,
+            debounce = 75,
+            keymap = {
+                accept = "<M-l>",
+                next = "<M-]>",
+                prev = "<M-[>",
+                dismiss = "<C-]>",
+            },
+        },
+        filetypes = {
+            yaml = false,
+            markdown = false,
+            help = false,
+            gitcommit = false,
+            gitrebase = false,
+            hgcommit = false,
+            svn = false,
+            cvs = false,
+            ["."] = true,
+        },
+        copilot_node_command = 'node', -- Node version must be < 18
+        server_opts_overrides = {},
+    })
+end
 
--- function config.copilot_cmp()
---     require("copilot_cmp").setup()
---
--- end
+function config.copilot_cmp()
+    require("copilot_cmp").setup()
+end
 
 config.nvim_treesitter = function()
     vim.api.nvim_set_option_value("foldmethod", "expr", {})
@@ -31,6 +61,13 @@ config.nvim_treesitter = function()
             -- `false` will disable the whole extension
             enable                            = true,
             disable                           = { "markdown" },
+            disable                           = function(lang, buf)
+                local max_filesize = 100 * 1024 -- 100 KB
+                local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+                if ok and stats and stats.size > max_filesize then
+                    return true
+                end
+            end,
             additional_vim_regex_highlighting = false,
         },
         context_commentstring = { enable = true, enable_autocmd = false, },
@@ -166,8 +203,8 @@ function config.cmp()
         sorting = {
             priority_weight = 2,
             comparators = {
-                -- require("copilot_cmp.comparators").prioritize,
-                -- require("copilot_cmp.comparators").score,
+                require("copilot_cmp.comparators").prioritize,
+                require("copilot_cmp.comparators").score,
                 -- require("cmp_tabnine.compare"),
                 compare.offset,
                 compare.exact,
@@ -217,7 +254,7 @@ function config.cmp()
             { name = 'spell' },
             { name = 'orgmode' },
             { name = 'latex_symbols' },
-            --{ name = 'copilot' },
+            { name = 'copilot' },
             { name = 'buffer' },
         },
 
