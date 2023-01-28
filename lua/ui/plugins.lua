@@ -11,23 +11,24 @@ use {
 }
 
 use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('nvim-tree').setup {} end }
-use 'kyazdani42/nvim-web-devicons'
+    config = function() require('nvim-tree').setup {} end
+}
 
 use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
 
 use {
     'feline-nvim/feline.nvim',
     config = function()
-        -- local ctp_feline = require('catppuccin.groups.integrations.feline')
-        -- require("feline").setup({
-        --     components = ctp_feline.get(),
-        -- })
-        require('ui.feline_one_monokai')
+        local ctp_feline = require('catppuccin.groups.integrations.feline')
+        require("feline").setup({
+            components = ctp_feline.get(),
+        })
+--         require('ui.feline_one_monokai')
+           require('feline').winbar.setup()
 
     end
 }
-
+--
 use {
     'j-hui/fidget.nvim', -- for nvim-lsp progress
     config = function()
@@ -42,28 +43,28 @@ use {
     end
 }
 
--- fold
-use {
-    'anuvyklack/pretty-fold.nvim',
-    config = function()
-
-        require('pretty-fold').setup {}
-    end
-}
-
-use { 'anuvyklack/fold-preview.nvim',
-    requires = 'anuvyklack/keymap-amend.nvim',
-    config = function()
-        require('fold-preview').setup()
-        local keymap = vim.keymap
-        keymap.amend = require('keymap-amend')
-        local map = require('fold-preview').mapping
-
-        keymap.amend('n', 'h', map.show_close_preview_open_fold)
-    end
-}
-
--- theme
+-- -- fold
+-- use {
+--     'anuvyklack/pretty-fold.nvim',
+--     config = function()
+--
+--         require('pretty-fold').setup {}
+--     end
+-- }
+--
+-- use { 'anuvyklack/fold-preview.nvim',
+--     requires = 'anuvyklack/keymap-amend.nvim',
+--     config = function()
+--         require('fold-preview').setup()
+--         local keymap = vim.keymap
+--         keymap.amend = require('keymap-amend')
+--         local map = require('fold-preview').mapping
+--
+--         keymap.amend('n', 'h', map.show_close_preview_open_fold)
+--     end
+-- }
+--
+-- -- theme
 use {
     "catppuccin/nvim",
     as = "catppuccin",

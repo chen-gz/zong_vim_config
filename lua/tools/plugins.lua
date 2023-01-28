@@ -1,31 +1,31 @@
 local use = require('packer').use
 local config = require('tools.conf')
-use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-        'nvim-lua/plenary.nvim',
-        'nvim-lua/popup.nvim'
-    },
-    config = config.telescope,
-}
-
-use { 'akinsho/toggleterm.nvim', config = config.toggleterm }
-
-use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-}
+-- use {
+--     'nvim-telescope/telescope.nvim',
+--     requires = {
+--         'nvim-lua/plenary.nvim',
+--         'nvim-lua/popup.nvim'
+--     },
+--     config = config.telescope,
+-- }
+--
+-- use { 'akinsho/toggleterm.nvim', config = config.toggleterm }
+--
+-- use {
+--     'nvim-telescope/telescope-fzf-native.nvim',
+--     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+-- }
 use { 'max397574/better-escape.nvim', config = config.better_escape }
-
+--
 -- use { 'terrortylor/nvim-comment', config = config.nvim_comment }
--- use { 'preservim/nerdcommenter', opt = true }
+-- -- use { 'preservim/nerdcommenter', opt = true }
 use {
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
     end
 }
-
+--
 use {
     'abecodes/tabout.nvim',
     config = function()
@@ -51,11 +51,9 @@ use {
         }
     end,
     wants = { 'nvim-treesitter' }, -- or require if not used so far
-    after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
+    -- after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
 }
 
--- use { 'mfussenegger/nvim-dap', config = config.dap }
--- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, config = config.dapui }
 
 use {
     'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons';
