@@ -19,12 +19,12 @@ use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup()
 use {
     'feline-nvim/feline.nvim',
     config = function()
-        local ctp_feline = require('catppuccin.groups.integrations.feline')
-        require("feline").setup({
-            components = ctp_feline.get(),
-        })
---         require('ui.feline_one_monokai')
-           require('feline').winbar.setup()
+        -- local ctp_feline = require('catppuccin.groups.integrations.feline')
+        -- require("feline").setup({
+        --     components = ctp_feline.get(),
+        -- })
+        require('ui.feline_one_monokai')
+        -- require('feline').winbar.setup()
 
     end
 }
